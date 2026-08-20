@@ -1,0 +1,253 @@
+/* ==========================================================================
+   Brightened, brightened.app
+   Shared stylesheet for index, privacy, and support.
+
+   Palette mirrors the app exactly: cream base, the five stage gradients
+   (slate through radiant), and the same ink and muted text colors.
+   ========================================================================== */
+
+:root{
+  --cream:#FAF5EC;
+  --ink:#2A2A28;
+  --muted:#756E62;
+  --hairline:#E4DCCC;
+  --card:#FFFFFF;
+
+  --slate-top:#3A4148;   --slate-bot:#5C6670;
+  --dusk-top:#4E4468;    --dusk-bot:#7A6B96;
+  --dawn-top:#B89654;    --dawn-bot:#DCC38A;
+  --amber-top:#C4832F;   --amber-bot:#E8B36A;
+  --radiant-top:#D9A621; --radiant-bot:#F5D76E;
+
+  --display:"Fraunces",Georgia,serif;
+  --body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none !important;transition:none !important}
+}
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:inherit}
+img{max-width:100%;display:block}
+
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 28px}
+.wrap-narrow{width:100%;max-width:720px;margin:0 auto;padding:0 28px}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+
+.site-head{padding:26px 0}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+
+.wordmark{
+  font-family:var(--display);
+  font-size:21px;font-weight:400;
+  text-decoration:none;letter-spacing:.01em;
+}
+
+.head-links{display:flex;gap:22px;font-size:14px;color:var(--muted)}
+.head-links a{text-decoration:none}
+.head-links a:hover{color:var(--ink)}
+.head-links a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+.hero{padding:56px 0 24px}
+
+.eyebrow{
+  font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 20px;
+}
+
+.hero h1{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(2.6rem,7vw,4.6rem);line-height:1.06;
+  margin:0 0 22px;letter-spacing:-.015em;
+}
+.hero h1 em{font-style:italic;font-weight:300}
+
+.hero .lede{
+  font-size:clamp(1.05rem,2vw,1.25rem);
+  color:var(--muted);max-width:44ch;margin:0 0 34px;
+}
+
+.cta{
+  display:inline-block;text-decoration:none;
+  background:linear-gradient(135deg,var(--radiant-top),var(--radiant-bot));
+  color:#221B08;font-weight:600;font-size:15px;
+  padding:15px 30px;border-radius:999px;
+  box-shadow:0 2px 14px rgba(217,166,33,.28);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.cta:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(217,166,33,.34)}
+.cta:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+.cta-note{font-size:13.5px;color:var(--muted);margin:14px 0 0}
+
+/* --------------------------------------------------------------------------
+   Signature: the stage gradient bar
+   -------------------------------------------------------------------------- */
+
+.arc-block{padding:52px 0 72px}
+
+.arc-label{
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 14px;
+}
+
+.arc{
+  position:relative;height:74px;border-radius:16px;overflow:hidden;
+  background:linear-gradient(135deg,
+    var(--slate-top) 0%, var(--dusk-top) 25%,
+    var(--dawn-top) 50%, var(--amber-top) 75%, var(--radiant-top) 100%);
+}
+
+.arc-scale{
+  display:flex;justify-content:space-between;
+  font-size:12px;color:var(--muted);margin-top:10px;
+}
+.arc-scale span{flex:1;text-align:center}
+.arc-scale span:first-child{text-align:left}
+.arc-scale span:last-child{text-align:right}
+
+/* --------------------------------------------------------------------------
+   Sections
+   -------------------------------------------------------------------------- */
+
+.section{padding:64px 0}
+.rule{border:0;border-top:1px solid var(--hairline);margin:0}
+
+.section-title{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;
+  margin:0 0 20px;letter-spacing:-.01em;
+}
+
+.prose{max-width:60ch}
+.prose p{margin:0 0 18px;color:var(--ink)}
+.prose p.dim{color:var(--muted)}
+
+/* --------------------------------------------------------------------------
+   Feature grid
+   -------------------------------------------------------------------------- */
+
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:38px}
+
+.feature{
+  background:var(--card);border-radius:18px;padding:26px 24px;
+  border:1px solid var(--hairline);
+}
+.feature h3{font-family:var(--display);font-weight:400;font-size:1.3rem;margin:0 0 10px}
+.feature p{margin:0;color:var(--muted);font-size:15.5px}
+
+.swatch{height:8px;border-radius:99px;margin-bottom:18px;width:56px}
+.s-slate{background:linear-gradient(135deg,var(--slate-top),var(--slate-bot))}
+.s-dusk{background:linear-gradient(135deg,var(--dusk-top),var(--dusk-bot))}
+.s-dawn{background:linear-gradient(135deg,var(--dawn-top),var(--dawn-bot))}
+.s-amber{background:linear-gradient(135deg,var(--amber-top),var(--amber-bot))}
+.s-radiant{background:linear-gradient(135deg,var(--radiant-top),var(--radiant-bot))}
+
+/* --------------------------------------------------------------------------
+   Screenshots
+   -------------------------------------------------------------------------- */
+
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:40px}
+.shot figure{margin:0}
+.shot img{border-radius:20px;border:1px solid var(--hairline);background:#fff}
+.shot figcaption{margin-top:14px;font-size:14.5px;color:var(--muted)}
+.shot figcaption strong{
+  display:block;color:var(--ink);font-weight:500;
+  font-family:var(--display);font-size:1.05rem;margin-bottom:3px;
+}
+
+/* --------------------------------------------------------------------------
+   Callout boxes
+   -------------------------------------------------------------------------- */
+
+.requirement,.callout,.contact{
+  background:var(--card);border:1px solid var(--hairline);
+  border-radius:18px;padding:28px 26px;
+}
+.requirement{max-width:62ch}
+.requirement h3{font-family:var(--display);font-weight:400;font-size:1.25rem;margin:0 0 10px}
+.requirement p{margin:0;color:var(--muted);font-size:15.5px}
+
+.callout{margin:0 0 34px;padding:24px 24px}
+.callout p{margin:0;font-size:16px}
+.callout strong{font-weight:600}
+
+.contact{margin:40px 0 0;padding:26px 24px}
+.contact h2{margin:0 0 10px;font-size:1.3rem}
+.contact p{margin:0 0 16px;color:var(--muted);font-size:16px}
+
+.mail{
+  display:inline-block;text-decoration:none;
+  background:linear-gradient(135deg,var(--radiant-top),var(--radiant-bot));
+  color:#221B08;font-weight:600;font-size:15px;
+  padding:13px 26px;border-radius:999px;
+}
+.mail:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+/* --------------------------------------------------------------------------
+   Document pages (privacy, support)
+   -------------------------------------------------------------------------- */
+
+.doc{padding:44px 0 30px;line-height:1.7}
+.doc h1{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(2.1rem,5vw,3rem);line-height:1.12;
+  margin:0 0 14px;letter-spacing:-.012em;
+}
+.doc h2{font-family:var(--display);font-weight:400;font-size:1.45rem;margin:44px 0 12px}
+.doc p{margin:0 0 18px}
+.doc ul,.doc ol{margin:0 0 18px;padding-left:22px}
+.doc li{margin-bottom:9px}
+.doc .updated{color:var(--muted);font-size:14px;margin:0 0 40px}
+.doc .lede{color:var(--muted);margin:0 0 40px;max-width:52ch}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.site-foot{padding:56px 0 70px;border-top:1px solid var(--hairline)}
+.site-foot.spaced{margin-top:56px;padding:48px 0 70px}
+.site-foot p{margin:0 0 12px;color:var(--muted);font-size:15px;max-width:60ch}
+.site-foot a{color:var(--ink)}
+
+.foot-links{display:flex;gap:22px;margin-top:22px;font-size:14px}
+.foot-links a{text-decoration:none;color:var(--muted)}
+.foot-links a:hover{color:var(--ink)}
+.foot-links a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+.legal{font-size:13.5px;margin-top:26px}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width:780px){
+  .features{grid-template-columns:1fr}
+  .shots{grid-template-columns:1fr;max-width:340px}
+  .head-links{display:none}
+}

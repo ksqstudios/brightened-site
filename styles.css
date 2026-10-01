@@ -181,6 +181,16 @@ img{max-width:100%;display:block}
   font-family:var(--display);font-size:1.05rem;margin-bottom:3px;
 }
 
+/* v1.1: the second row carries the two new platforms. iPad takes the
+   wide column at its landscape proportion; the watch sits beside it at
+   its own small scale on black, rounded like the watch display, with no
+   hairline since the face supplies its own edge. */
+.shots-more{grid-template-columns:2fr 1fr;margin-top:46px;align-items:start}
+.shot-watch img{
+  border-radius:44px;border:0;background:#000;
+  width:100%;max-width:300px;
+}
+
 /* --------------------------------------------------------------------------
    Callout boxes
    -------------------------------------------------------------------------- */
@@ -249,5 +259,6 @@ img{max-width:100%;display:block}
 @media (max-width:780px){
   .features{grid-template-columns:1fr}
   .shots{grid-template-columns:1fr;max-width:340px}
+  .shots-more{grid-template-columns:1fr}
   .head-links{display:none}
 }

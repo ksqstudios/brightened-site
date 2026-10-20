@@ -6,7 +6,7 @@
 <title>What's new in Brightened 1.1</title>
 <meta name="description" content="Brightened 1.1 comes to Apple Watch, with complications, widgets that refresh in the background, and a wider layout on iPad and iPhone Duo.">
 <link rel="canonical" href="https://brightened.app/event/duo">
-<meta name="theme-color" content="#FAF5EC">
+<meta name="theme-color" content="#faf5ec">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://brightened.app/event/duo">
 <meta property="og:title" content="What's new in Brightened 1.1">
@@ -16,7 +16,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -28,13 +28,12 @@
   moment the page loads. Must be live before the event's start date.
 -->
 
-<header class="site-head">
-  <div class="wrap">
-    <a class="wordmark" href="/">Brightened</a>
-    <nav class="head-links">
-      <a href="/">Home</a>
+<header class="bar">
+  <div class="bar-inner">
+    <a class="mark" href="/">Brightened</a>
+    <nav aria-label="Site">
       <a href="/support">Support</a>
-      <a href="/privacy">Privacy</a>
+      <a class="bar-cta" href="https://apps.apple.com/us/app/brightened/id6803251051" rel="noopener">Get Brightened</a>
     </nav>
   </div>
 </header>
@@ -48,6 +47,10 @@
 <h2>Now on Apple Watch</h2>
 <p>A watch app with your seven-day average, its stage, and today's minutes on the same gradient, readable in always-on. Complications put the number on your watch face, and stay legible on faces tinted to a single color.</p>
 
+<figure class="duo">
+  <img src="/images/duo.png" alt="Brightened on the unfolded iPhone Duo: a full-height dusk panel reading 24 minutes beside today's arc and the last seven days." width="1600" height="1125">
+</figure>
+
 <h2>Room to spread out</h2>
 <p>On iPad and iPhone Duo, the gradient stands as a full-height panel beside your day and your week, and History lays its weeks out side by side.</p>
 
@@ -57,21 +60,20 @@
 <h2>One goal, everywhere</h2>
 <p>Change your daily goal on your phone and your watch follows.</p>
 
-<p style="margin-top:40px"><a class="cta" href="https://apps.apple.com/us/app/brightened/id6803251051" rel="noopener">Download on the App Store</a></p>
-<p class="cta-note">$3.99, one time. No subscription, no account, no cloud.</p>
+<p class="buy"><a class="button" href="https://apps.apple.com/us/app/brightened/id6803251051" rel="noopener">Download on the App Store</a></p>
+<p class="updated">$3.99, one time. No subscription, no account, no cloud.</p>
 
 </div>
 </main>
 
-<footer class="site-foot spaced">
-  <div class="wrap">
-    <p>Brightened is made by <a href="https://ksqstudios.com">KSQ Studios</a> in Berwyn, Pennsylvania.</p>
-    <div class="foot-links">
-      <a href="/">Home</a>
-      <a href="/support">Support</a>
+<footer class="foot">
+  <div class="foot-inner">
+    <nav aria-label="Footer">
       <a href="/privacy">Privacy</a>
-    </div>
-    <p class="legal">© 2026 KSQ Studios LLC · Brightened</p>
+      <a href="/support">Support</a>
+      <a href="https://ksqstudios.com">KSQ Studios</a>
+    </nav>
+    <p>2026 KSQ Studios LLC.</p>
   </div>
 </footer>
 

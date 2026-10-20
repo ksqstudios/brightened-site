@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Brightened: the daylight you gathered</title>
+<title>Brightened, the daylight you gathered</title>
 <meta name="description" content="A daylight tracker for iPhone, iPad, and Apple Watch, built on the Time in Daylight your watch already records. A gradient that brightens as light accumulates.">
 <link rel="canonical" href="https://brightened.app">
-<meta name="theme-color" content="#FAF5EC">
+<meta name="theme-color" content="#faf5ec">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://brightened.app">
-<meta property="og:title" content="Brightened: the daylight you gathered">
+<meta property="og:title" content="Brightened, the daylight you gathered">
 <meta property="og:description" content="A daylight tracker for iPhone, iPad, and Apple Watch, built on the Time in Daylight your watch already records.">
 <meta property="og:image" content="https://brightened.app/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -20,147 +20,180 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<script defer src="/scripts.js"></script>
 </head>
 <body>
 
-<header class="site-head">
-  <div class="wrap">
-    <a class="wordmark" href="/">Brightened</a>
-    <nav class="head-links">
-      <a href="#idea">The idea</a>
-      <a href="#app">The app</a>
+<!-- The light in the room. Its color follows the stage of the week in the
+     hero, so the page brightens as the average does. -->
+<div class="glow" aria-hidden="true"></div>
+
+<header class="bar">
+  <div class="bar-inner">
+    <a class="mark" href="/">Brightened</a>
+    <nav aria-label="Site">
       <a href="/support">Support</a>
-      <a href="/privacy">Privacy</a>
+      <a class="bar-cta" href="https://apps.apple.com/us/app/brightened/id6803251051" rel="noopener">Get Brightened</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-<div class="hero wrap">
-  <p class="eyebrow">A daylight tracker</p>
-  <h1>The daylight<br><em>you gathered.</em></h1>
-  <p class="lede">Your Apple Watch already records how much time you spend in daylight. Brightened is a calm place to see it, on your phone and on your wrist.</p>
-  <a class="cta" href="https://apps.apple.com/us/app/brightened/id6803251051" rel="noopener">Download on the App Store</a>
-  <p class="cta-note">$3.99, one time. No subscription, no account, no cloud.</p>
-</div>
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">A daylight tracker for Apple Watch, iPhone and iPad</p>
+      <h1>The daylight<br><em>you gathered.</em></h1>
+      <p class="lede">
+        Your Apple Watch already records how much time you spend in daylight.
+        Brightened is a calm place to see it, on your phone and on your wrist.
+      </p>
+      <p class="buy">
+        <a class="button" href="https://apps.apple.com/us/app/brightened/id6803251051" rel="noopener">Download on the App Store</a>
+        <span>$3.99, one time. No subscription, no account, no cloud.</span>
+      </p>
+    </div>
 
-<div class="arc-block wrap">
-  <p class="arc-label">Seven-day average</p>
-  <div class="arc" role="img" aria-label="The gradient runs from slate through dusk, dawn, and amber to radiant as daylight accumulates."></div>
-  <div class="arc-scale">
-    <span>Slate</span><span>Dusk</span><span>Dawn</span><span>Amber</span><span>Radiant</span>
-  </div>
-</div>
+    <!-- An example week. The days rise one at a time and the panel moves
+         through the stages as the average passes each quarter of the goal,
+         the same rule the app uses. Each day can be dragged afterwards. -->
+    <figure class="week" id="week">
+      <div class="panel" id="panel" data-stage="radiant">
+        <p class="avg"><span id="avg">91</span> min</p>
+        <p class="stage-line"><span id="stage-name">Radiant</span> · 7-day average</p>
+        <p class="goal-line">Goal <span id="goal">60</span> min a day</p>
+      </div>
+      <div class="days-card">
+        <div class="days-head">
+          <p>Last 7 days</p>
+          <p class="total"><span id="total">637</span> min total</p>
+        </div>
+        <div class="days" id="days">
+          <!-- data-min is the day's daylight in minutes -->
+          <button type="button" class="day" data-min="180"><span class="fill"></span><span class="lab">S</span></button>
+          <button type="button" class="day" data-min="80"><span class="fill"></span><span class="lab">M</span></button>
+          <button type="button" class="day" data-min="22"><span class="fill"></span><span class="lab">T</span></button>
+          <button type="button" class="day" data-min="60"><span class="fill"></span><span class="lab">W</span></button>
+          <button type="button" class="day" data-min="50"><span class="fill"></span><span class="lab">T</span></button>
+          <button type="button" class="day" data-min="115"><span class="fill"></span><span class="lab">F</span></button>
+          <button type="button" class="day" data-min="130"><span class="fill"></span><span class="lab">S</span></button>
+        </div>
+      </div>
+      <figcaption>An example week. Drag any day up or down.</figcaption>
+    </figure>
+  </section>
 
-<hr class="rule">
+  <!-- The five stages. The one the week above sits in is marked. -->
+  <section class="stages" aria-label="The five stages">
+    <ol class="scale" id="scale">
+      <li data-stage="slate"><span class="chip"></span><b>Slate</b><i>Under a quarter of your goal</i></li>
+      <li data-stage="dusk"><span class="chip"></span><b>Dusk</b><i>A quarter to half</i></li>
+      <li data-stage="dawn"><span class="chip"></span><b>Dawn</b><i>Half to three quarters</i></li>
+      <li data-stage="amber"><span class="chip"></span><b>Amber</b><i>Three quarters to your goal</i></li>
+      <li data-stage="radiant"><span class="chip"></span><b>Radiant</b><i>At or above your goal</i></li>
+    </ol>
+  </section>
 
-<section class="section" id="idea">
-  <div class="wrap prose">
-    <h2 class="section-title">The idea</h2>
-    <p>Time in Daylight is one of the quietest measurements Apple Watch takes. It sits in the Health app, updated every day, and almost nobody looks at it.</p>
-    <p>It deserves better than a row in a list. How much light you got is the kind of thing you want to know at a glance, on the way out the door, without doing arithmetic.</p>
-    <p class="dim">So Brightened does one thing. It reads that single number, averages it across the last seven days, and paints it as a gradient that brightens as light accumulates. You can tell how the week has gone from across the room, before you read a word.</p>
-  </div>
-</section>
+  <section class="idea">
+    <h2>One quiet number, painted.</h2>
+    <div class="idea-body">
+      <p>
+        Time in Daylight is one of the quietest measurements Apple Watch
+        takes. It sits in the Health app, updated every day, and almost
+        nobody looks at it.
+      </p>
+      <p>
+        It deserves better than a row in a list. Brightened reads that single
+        number, averages it across the last seven days, and paints it as a
+        gradient that brightens as light accumulates. You can tell how the
+        week has gone from across the room, before you read a word.
+      </p>
+    </div>
+  </section>
 
-<hr class="rule">
+  <!-- The day's arc. A sun crosses from morning to evening and lights the
+       stretches you were outside, the way the Today screen draws them. -->
+  <section class="arc-sec" id="arc">
+    <div class="arc-text">
+      <h2>When your light fell</h2>
+      <p>
+        A quiet band shows when your daylight came, morning on the left and
+        evening on the right. It describes your day. It does not grade it.
+      </p>
+    </div>
+    <div class="arc-card">
+      <div class="arc-head"><p>Today</p><p class="arc-total"><span id="arc-min">0</span> min</p></div>
+      <div class="arc-track" id="arc-track">
+        <!-- data-from and data-to are minutes after midnight -->
+        <span class="seg" data-from="465" data-to="490"></span>
+        <span class="seg" data-from="595" data-to="612"></span>
+        <span class="seg" data-from="705" data-to="768"></span>
+        <span class="seg" data-from="850" data-to="871"></span>
+        <span class="seg" data-from="935" data-to="958"></span>
+        <span class="seg" data-from="1010" data-to="1059"></span>
+        <span class="sun" id="sun"></span>
+      </div>
+      <div class="arc-ticks"><span>6 AM</span><span>Noon</span><span>6 PM</span></div>
+    </div>
+  </section>
 
-<section class="section" id="app">
-  <div class="wrap">
-    <h2 class="section-title">The app</h2>
+  <section class="app">
+    <h2>On your phone, your wrist, your home screen</h2>
     <div class="shots">
-      <div class="shot">
-        <figure>
-          <img src="/images/today.jpg" alt="The Today screen showing a 91 minute seven-day average on a radiant gold gradient, with today's minutes and the day's arc below.">
-          <figcaption><strong>Today</strong>Your seven-day average, today's minutes, and when your daylight actually fell.</figcaption>
-        </figure>
-      </div>
-      <div class="shot">
-        <figure>
-          <img src="/images/history.jpg" alt="The History screen showing four weekly cards, each with seven daily bars in gold.">
-          <figcaption><strong>History</strong>Four weeks of days, all scaled against each other so a strong week looks like one.</figcaption>
-        </figure>
-      </div>
-      <div class="shot">
-        <figure>
-          <img src="/images/widget.jpg" alt="Small and medium Brightened widgets on a home screen, showing the weekly average on a gold gradient.">
-          <figcaption><strong>Widgets</strong>The same number and the same gradient, on your home screen, kept current in the background.</figcaption>
-        </figure>
-      </div>
+      <figure><img src="/images/today.jpg" alt="The Today screen: a 91 minute seven-day average on a radiant gold gradient, with today's minutes and the day's arc below." width="660" height="860" loading="lazy"><figcaption><b>Today.</b> Your average, today's minutes, and when the light fell.</figcaption></figure>
+      <figure><img src="/images/history.jpg" alt="History: four weekly cards, each with seven daily bars in gold." width="660" height="1434" loading="lazy"><figcaption><b>History.</b> Four weeks, scaled against each other so a strong week looks like one.</figcaption></figure>
+      <figure><img src="/images/widget.jpg" alt="Small and medium Brightened widgets on a home screen, showing the weekly average on a gold gradient." width="660" height="1434" loading="lazy"><figcaption><b>Widgets.</b> The same number, kept current in the background.</figcaption></figure>
+      <figure class="watch"><img src="/images/watch.jpg" alt="An Apple Watch face with Brightened complications: a ring around 91, and a wider one reading 91 min, Radiant, today 198 min." width="422" height="514" loading="lazy"><figcaption><b>Apple Watch.</b> The app and complications, legible on a face tinted to one color.</figcaption></figure>
     </div>
-    <div class="shots shots-more">
-      <div class="shot">
-        <figure>
-          <img src="/images/ipad.jpg" alt="Brightened on iPad in landscape: the seven-day average of 91 minutes on a full-height radiant gold panel at left, with today's arc and the last seven days beside it.">
-          <figcaption><strong>iPad</strong>On a larger screen the gradient stands beside your day and your week, and History lays its weeks out side by side.</figcaption>
-        </figure>
-      </div>
-      <div class="shot shot-watch">
-        <figure>
-          <img src="/images/watch.jpg" alt="An Apple Watch face showing Brightened complications: a ring around the number 91, and a wider complication reading 91 min, Radiant, today 198 min.">
-          <figcaption><strong>Apple Watch</strong>The weekly average as an app and as complications, legible even on a face tinted to one color.</figcaption>
-        </figure>
-      </div>
+    <figure class="duo">
+      <img src="/images/duo.png" alt="Brightened on the unfolded iPhone Duo: a full-height dusk panel reading 24 minutes beside today's arc and the last seven days." width="1600" height="1125" loading="lazy">
+      <figcaption><b>iPad and iPhone Duo.</b> The gradient stands as a full-height panel beside your day and your week. New in 1.1, with the Apple Watch app.</figcaption>
+    </figure>
+  </section>
+
+  <section class="also">
+    <div>
+      <h3>A goal that is yours</h3>
+      <p>Set a daily goal that fits the life you actually have, and change it whenever it stops fitting. Brightened uses it to shade the gradient and nothing else.</p>
     </div>
-  </div>
-</section>
-
-<hr class="rule">
-
-<section class="section">
-  <div class="wrap">
-    <h2 class="section-title">Also</h2>
-    <div class="features">
-      <div class="feature">
-        <div class="swatch s-radiant"></div>
-        <h3>The day's arc</h3>
-        <p>A quiet band showing when your daylight fell across the day. Morning on the left, evening on the right. It describes your day. It does not grade it.</p>
-      </div>
-      <div class="feature">
-        <div class="swatch s-amber"></div>
-        <h3>A goal that is yours</h3>
-        <p>Set a daily goal that fits the life you actually have, and change it whenever it stops fitting. Brightened uses it to shade the gradient and nothing else.</p>
-      </div>
-      <div class="feature">
-        <div class="swatch s-dawn"></div>
-        <h3>No streaks</h3>
-        <p>No badges, no notifications asking where you have been, no red. A quiet week is just a quiet week, and the app says nothing about it.</p>
-      </div>
-      <div class="feature">
-        <div class="swatch s-slate"></div>
-        <h3>Entirely on your devices</h3>
-        <p>Brightened reads one measurement from Apple Health and nothing else. No accounts, no servers, no tracking. Your goal travels from your phone to your watch over their own connection, and nothing goes anywhere else.</p>
-      </div>
+    <div>
+      <h3>No streaks</h3>
+      <p>No badges, no notifications asking where you have been, no red. A quiet week is just a quiet week, and the app says nothing about it.</p>
     </div>
-  </div>
-</section>
-
-<hr class="rule">
-
-<section class="section">
-  <div class="wrap">
-    <div class="requirement">
-      <h3>What you need</h3>
-      <p>Time in Daylight is recorded by Apple Watch, Series 6 and later. Brightened reads it from Apple Health. Without a paired Apple Watch there is no daylight data to show, so the app will tell you so plainly rather than pretending otherwise. The Apple Watch app requires watchOS 27. Brightened also runs on iPad, where it shows the same daylight once your Health data syncs to it through iCloud.</p>
+    <div>
+      <h3>Entirely on your devices</h3>
+      <p>One measurement read from Apple Health, and nothing else. No accounts, no servers, no tracking. Your goal travels from your phone to your watch over their own connection.</p>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="need">
+    <h3>What you need</h3>
+    <p>
+      Time in Daylight is recorded by Apple Watch, Series 6 and later, and
+      Brightened reads it from Apple Health. Without a paired Apple Watch
+      there is no daylight data to show, and the app says so plainly rather
+      than pretending otherwise. The Apple Watch app requires watchOS 27. On
+      iPad, Brightened shows the same daylight once your Health data syncs to
+      it through iCloud.
+    </p>
+    <p class="buy">
+      <a class="button" href="https://apps.apple.com/us/app/brightened/id6803251051" rel="noopener">Download on the App Store</a>
+    </p>
+  </section>
 
 </main>
 
-<footer class="site-foot">
-  <div class="wrap">
-    <p>Brightened is designed, built, and supported by one person, Kurt Klein, in Berwyn, Pennsylvania, under <a href="https://ksqstudios.com">KSQ Studios</a>.</p>
-    <p>If you have used it and want to say hello, report a bug, or suggest something: <a href="mailto:techsupport@ksqstudios.com">techsupport@ksqstudios.com</a>.</p>
-    <div class="foot-links">
+<footer class="foot">
+  <div class="foot-inner">
+    <nav aria-label="Footer">
       <a href="/privacy">Privacy</a>
       <a href="/support">Support</a>
-      <a href="mailto:techsupport@ksqstudios.com">Email</a>
-    </div>
-    <p class="legal">© 2026 KSQ Studios LLC · Brightened</p>
+      <a href="https://ksqstudios.com">KSQ Studios</a>
+    </nav>
+    <p>Brightened is designed, built, and supported by one person, Kurt Klein, in Berwyn, Pennsylvania, under KSQ Studios. Write to <a href="mailto:techsupport@ksqstudios.com">techsupport@ksqstudios.com</a>.</p>
+    <p>2026 KSQ Studios LLC.</p>
   </div>
 </footer>
 

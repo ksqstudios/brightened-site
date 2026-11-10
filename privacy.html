@@ -30,10 +30,10 @@
 <div class="wrap-narrow">
 
 <h1>Privacy</h1>
-<p class="updated">Last updated October 1, 2026</p>
+<p class="updated">Last updated November 9, 2026</p>
 
 <div class="callout">
-  <p><strong>The short version.</strong> Brightened collects nothing, sends nothing to us, and has no servers. It reads one measurement from Apple Health on your own devices and shows it to you. The only thing that ever moves is your daily goal, from your phone to your own watch. That is the whole story.</p>
+  <p><strong>The short version.</strong> Brightened collects nothing, sends nothing to us, and has no servers. It reads one measurement from Apple Health on your own devices and shows it to you. The only thing that ever moves on its own is your daily goal, between your phone and your own watch. If you export your history, the file goes only where you send it. That is the whole story.</p>
 </div>
 
 <h2>What Brightened reads</h2>
@@ -42,8 +42,8 @@
 <p>Brightened does not request write access to Apple Health, and it never will. It does not read any other health or fitness data of any kind.</p>
 
 <h2>Where your data goes</h2>
-<p>Nowhere. Your daylight data is read from Apple Health on each device, displayed in the app, and stored only in the app's own container and shared app group on that same device, so the home screen widget and the watch complications can display it. Your iPhone, your iPad, and your watch each read their own copy from Apple Health; Brightened never sends daylight data between them. On iPad, that copy arrives through Apple Health's own iCloud sync, which Apple runs and Brightened has no part in. It is never uploaded, synced, backed up to our systems, or transmitted off your devices in any form.</p>
-<p>When your watch syncs new daylight data to your iPhone, Brightened may briefly run in the background to recalculate your average and refresh the widget. That work happens on your phone and sends nothing anywhere.</p>
+<p>Nowhere. Your daylight data is read from Apple Health on each device, displayed in the app, and stored only in the app's own container and shared app group on that same device, so the home screen widget and the watch complications can display it. Your iPhone, your iPad, and your watch each read their own copy from Apple Health; Brightened never sends daylight data between them. On iPad, that copy arrives through Apple Health's own iCloud sync, which Apple runs and Brightened has no part in. It is never uploaded, synced, backed up to our systems, or transmitted off your devices in any form. The one exception is a file you export and send somewhere yourself, described below.</p>
+<p>When your watch syncs new daylight data to your iPhone, Brightened may briefly run in the background to recalculate your average and refresh the widget. In the same way, when your watch records new daylight, the watch app may briefly run in the background to refresh its complications. That work happens on each device and sends nothing anywhere.</p>
 <p>There are no KSQ Studios servers involved in Brightened. There is nothing for us to see, because nothing is ever sent to us.</p>
 
 <h2>What we collect</h2>
@@ -58,7 +58,10 @@
 </ul>
 
 <h2>Your daily goal</h2>
-<p>The daily goal you set is stored on your iPhone alongside the app. It is a preference, not a health record. If you use the Brightened app on Apple Watch, your phone sends that one number to your paired watch so both show the same goal. It travels directly between your own devices using Apple's Watch Connectivity framework, and is never sent to us or anywhere else.</p>
+<p>The daily goal you set is stored on your iPhone alongside the app, and on your watch if you use the Brightened app there. It is a preference, not a health record. You can change it on either device. Your phone and your paired watch send that one number to each other, with the time it was last changed, so both show the goal you set most recently. It travels directly between your own devices using Apple's Watch Connectivity framework, and is never sent to us or anywhere else.</p>
+
+<h2>Exporting your history</h2>
+<p>If you choose Export daylight history in Settings, Brightened writes your daily totals, a date and a number of minutes for each day, to a temporary file on your device and opens the share sheet. The file goes only where you choose to send it, such as Files, Mail, or another app, and from there it is governed by wherever you put it. Brightened sends it nowhere itself, keeps no copy, and the system removes the temporary file on its own.</p>
 
 <h2>Revoking access</h2>
 <p>You can withdraw Brightened's access to your daylight data at any time in the Health app on your iPhone, under Sharing, then Apps. On Apple Watch, the watch app's access is managed separately in the Settings app on the watch, under Health, then Apps. Deleting Brightened from a device removes everything the app stored on that device.</p>

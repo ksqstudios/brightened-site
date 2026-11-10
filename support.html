@@ -54,25 +54,33 @@
 </ol>
 
 <h2>How is the seven-day average calculated?</h2>
-<p>It is the mean of your daily totals across the last seven days. Days with no recorded daylight count as zero. Days before your watch started recording are left out entirely, and while you have fewer than seven days of history the app says so on the Today screen.</p>
+<p>It is the mean of your daily totals across the last seven days, counting only the days that recorded some daylight. That is the rule the Health app uses. A day spent indoors and a day your watch sat on its charger both leave nothing behind, and there is no way to tell them apart, so neither is counted as zero. Days before your watch started recording are left out too, and while you have fewer than seven days of history the app says so on the Today screen.</p>
+<p>The monthly and yearly averages in History follow the same rule.</p>
+
+<h2>Can I see further back than a few weeks?</h2>
+<p>Yes. History shows your daylight by week, by month, and by year, as far back as your watch has recorded it. Tap a day in a week or a month, or in the last seven days on the Today screen, to open it and see how many minutes it gathered and when the light fell.</p>
+
+<h2>Can I export my daylight?</h2>
+<p>Yes. In Settings, tap Export daylight history. Brightened writes a file with one row for every day, from the first day your watch recorded to today, and opens the share sheet so you can save it to Files, send it to yourself, or open it in a spreadsheet.</p>
+<p>The file is plain CSV with two columns, date and minutes. Days with nothing recorded appear as 0, so you can average them either way. Brightened does not keep a copy and sends the file nowhere. It goes only where you send it.</p>
 
 <h2>What should my daily goal be?</h2>
 <p>That is genuinely up to you. Brightened does not recommend a number, because how much daylight a person needs is not something an app should decide. The goal exists to shade the gradient against something meaningful to you. Pick something that fits your life, and change it whenever it stops fitting.</p>
 
 <h2>Is my data sent anywhere?</h2>
-<p>No. Brightened has no servers and no accounts. Your daylight data stays on each of your devices. The one thing that moves is your daily goal, from your iPhone to your own Apple Watch. The full detail is on the <a href="/privacy">privacy page</a>.</p>
+<p>No. Brightened has no servers and no accounts. Your daylight data stays on each of your devices. The one thing that moves is your daily goal, between your iPhone and your own Apple Watch. The full detail is on the <a href="/privacy">privacy page</a>.</p>
 
 <h2>Is there an Apple Watch app?</h2>
-<p>Yes. It requires watchOS 27, and installs with Brightened on your iPhone. It shows your seven-day average, its stage, and today's minutes, and Brightened is available as a complication on most watch faces.</p>
+<p>Yes. It requires watchOS 26 or later, and installs with Brightened on your iPhone. It shows your seven-day average, its stage, and today's minutes, and Brightened is available as a complication on most watch faces, including a one-line version for the slot above the time.</p>
 <p>A few things worth knowing:</p>
 <ul>
   <li>The watch asks for its own Health permission the first time you open it, separate from your iPhone's. Tap Continue and allow Time in Daylight.</li>
-  <li>Your daily goal is set on your iPhone. The watch follows it, usually within a few seconds, and keeps the last goal it received when your phone is out of range.</li>
-  <li>Complications show the figures from the last time the watch app checked. Opening Brightened on your watch refreshes them.</li>
+  <li>You can set your daily goal on either your iPhone or your watch. On the watch, tap the sun in the top corner and turn the Digital Crown. Whichever you changed most recently carries over to the other, usually within a few seconds. If your phone is out of range, the change waits and arrives when they reconnect.</li>
+  <li>Complications refresh on their own through the day as your watch records daylight, without the watch app being opened. watchOS decides exactly when, so if one looks behind, opening Brightened on your watch brings it up to date.</li>
 </ul>
 
 <h2>Does Brightened work on iPad?</h2>
-<p>Yes. iPad has no daylight sensor of its own, so it shows what your Apple Watch recorded, delivered through Apple Health's iCloud sync. On a larger screen the gradient stands beside your day and your week, and History lays its weeks out side by side.</p>
+<p>Yes. iPad has no daylight sensor of its own, so it shows what your Apple Watch recorded, delivered through Apple Health's iCloud sync. On a larger screen the gradient stands beside your day and your week, and History lays its weeks and months out side by side.</p>
 <p>If your iPad shows No daylight yet while your iPhone shows data, make sure Health is turned on in iCloud settings on both devices, then give it a little time to sync.</p>
 
 <h2>Why does my watch show a different average than my phone?</h2>
